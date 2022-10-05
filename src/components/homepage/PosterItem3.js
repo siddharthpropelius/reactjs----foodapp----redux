@@ -1,8 +1,5 @@
-import { Box, Typography } from '@mui/material';
-import Container from '@mui/material/Container';
 import React from 'react';
 import one from '../../assets/poster5.png';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import insta from '../../assets/insta.png'
 
 const PosterItem3 = () => {

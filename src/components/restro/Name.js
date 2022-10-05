@@ -8,7 +8,7 @@ const Name = ({ id }) => {
   useEffect(() => {
     const filteredData = restroData.filter((item) => item.id === id);
     setData(filteredData);
-  }, []);
+  }, [data,id]);
   return (
     <Container sx={{ mt: '30px' }}>
       {data.map((item) => {

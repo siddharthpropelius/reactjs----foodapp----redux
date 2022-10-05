@@ -1,4 +1,3 @@
-import { Box } from '@mui/system'
 import React from 'react'
 import Poster from '../../assets/playstore.png'
 import Container from '@mui/material/Container';

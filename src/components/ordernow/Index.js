@@ -1,7 +1,6 @@
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import gif from '../../assets/gif.gif';
 import { FoodActions } from '../../redux/slices/FoodSlice';
 import Auth from '../Auth/Auth';

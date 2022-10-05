@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../Layout/NavBar';
 import HeaderCard from './HeaderCard';
 import Hero from './Hero';
 import PopularRecipes from './PopularRecipes';

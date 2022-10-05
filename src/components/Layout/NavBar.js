@@ -1,4 +1,4 @@
-import { Badge, Container, IconButton, Typography } from '@mui/material';
+import { Badge, Container, IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import styled from '@emotion/styled';
@@ -20,7 +20,7 @@ const NavBar = () => {
     } else {
       setNavBg(false);
     }
-  });
+  },[]);
   const StyledBadge = styled(Badge)(({ theme }) => ({}));
 
   const handleOnLogOut = () => {
