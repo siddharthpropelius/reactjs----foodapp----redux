@@ -36,6 +36,7 @@ const FoodWeather = () => {
     const sort = newDAta.sort(() => Math.random() - Math.random());
     const randomData = sort.splice(1, 6);
     setFilteredData(randomData);
+    console.log(filtereddata);
   }, []);
 
   return (
@@ -49,7 +50,7 @@ const FoodWeather = () => {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-around',
-            gap: {md:'63px',xs:'20px'},
+            gap: { md: '63px', xs: '20px' },
             mt: '30px',
           }}
         >
@@ -57,24 +58,33 @@ const FoodWeather = () => {
             return (
               <>
                 <FoodWeatherCard
-                key={item.id}
+                  key={item.id}
                   name={item.name}
                   id={item.id}
                   price={item.price}
                   img={item.img}
                   time={item.time}
                   des={item.des}
+                  // quantity={item.quantity}
                 />
               </>
             );
           })}
         </Box>
-        <Box sx={{ display: 'flex', gap: '10px', mt: '50px', mb: '40px',flexWrap:'no wrap' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: '10px',
+            mt: '50px',
+            mb: '40px',
+            flexWrap: 'no wrap',
+          }}
+        >
           {imgData.map((item) => {
             return (
               <>
                 <Box key={item.id}>
-                  <img src={item.img} alt={item.primary}  />
+                  <img src={item.img} alt={item.primary} />
                   <Typography
                     variant="h6"
                     sx={{

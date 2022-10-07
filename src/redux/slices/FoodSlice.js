@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { current } from '@reduxjs/toolkit';
 import data from '../../data/data';
 import { restroData, couponList } from '../../data/data';
-
+import { useSelector } from 'react-redux';
 const FoodSlice = createSlice({
   name: 'food',
   initialState: {
@@ -40,11 +41,11 @@ const FoodSlice = createSlice({
           img: newItem.img,
           quantity: 1,
           subTotal: newItem.price,
-          totalPrice: newItem.price + 15,
+          totalPrice: newItem.price,
           des: newItem.des,
           deliveryCharge: 15,
         });
-        state.totalAmount = state.totalAmount + newItem.price + 15;
+        state.totalAmount += newItem.price;
         state.completeSubTotal += newItem.price;
         state.totalItem++;
       }
@@ -52,12 +53,12 @@ const FoodSlice = createSlice({
 
     removeFromCart(state, action) {
       const id = action.payload;
-
       const existingItem = state.cartList.find((item) => item.id === id);
       if (existingItem.quantity === 1) {
         state.cartList = state.cartList.filter((item) => item.id !== id);
         state.totalAmount -= existingItem.totalPrice;
-        state.totalSubTotal -= existingItem.price;
+        // state.totalSubTotal -= existingItem.price;
+        state.completeSubTotal -= existingItem.totalPrice;
       } else {
         existingItem.quantity--;
         existingItem.subTotal -= existingItem.price;

@@ -1,5 +1,5 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../Layout/NavBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@mui/system';
@@ -36,6 +36,7 @@ const Index = () => {
   const removeCoupon = () => {
     dispatch(FoodActions.removeCoupon(coupon));
   };
+
   return (
     <>
       <Auth>
@@ -108,9 +109,11 @@ const Index = () => {
                         <p className="font-bold text-xl">₹15</p>
                       </div>
                       {totalDiscount ? (
-                        <div className="flex justify-between mt-4">
+                        <div className="flex justify-between mt-4 text-red-900">
                           <p className="font-bold text-xl">Total Discount :</p>
-                          <p className="font-bold text-xl">₹{totalDiscount}</p>
+                          <p className="font-bold text-xl text-red-900">
+                            ₹{totalDiscount}
+                          </p>
                         </div>
                       ) : (
                         ''
@@ -119,7 +122,7 @@ const Index = () => {
                       <hr />
                       <div className="flex justify-between pb-4">
                         <p className="font-bold text-xl">Total :</p>
-                        <p className="font-bold text-xl">₹{totalAmount}</p>
+                        <p className="font-bold text-xl">₹{totalAmount + 15}</p>
                       </div>
                       <hr />
                       <Box sx={{ mt: 2 }}>

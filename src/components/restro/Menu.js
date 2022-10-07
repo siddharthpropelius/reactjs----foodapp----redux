@@ -9,7 +9,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: { md: 600, xs: 400 },
-  bgcolor: 'white',
+  color: 'white',
   p: 4,
 };
 
@@ -21,7 +21,7 @@ const Menu = () => {
     <Container sx={{ mt: '50px' }}>
       <Typography variant="h4">Menu</Typography>
       <Box
-        sx={{ display: 'flex', gap: '20px', mt: '20px', overflowX: 'scroll' }}
+        sx={{ display: 'flex', gap: '20px', mt: '20px', overflowX: 'scroll' ,cursor:'pointer'}}
       >
         <img src={menu} alt="menu" onClick={handleOpen} />
         <img src={menu} alt="menu" onClick={handleOpen} />

@@ -6,27 +6,37 @@ import { restroData } from '../../data/data';
 const Name = ({ id }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const filteredData = restroData.filter((item) => item.id === id);
+    const filteredData = restroData.find((item) => item.id === id);
     setData(filteredData);
-  }, [data,id]);
+  }, [data]);
   return (
     <Container sx={{ mt: '30px' }}>
-      {data.map((item) => {
-        return (
+   
           <>
-            <Box sx={{ display: 'flex' ,flexDirection:{md:'row',xs:'column'}}}>
-              <Box sx={{display:'flex',justifyContent:'center'}}>
-                <img src={item.img} alt="food" />
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { md: 'row', xs: 'column' },
+              }}
+            >
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <img src={data.img} alt="food" />
               </Box>
               <Box sx={{ ml: '30px', mt: '20px' }}>
-                <Typography variant="h5">{item.name}</Typography>
-                <Box sx={{ display: 'flex', gap: {md:'100px',xs:'40px'} }}>
+                <Typography variant="h5">{data.name}</Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    gap: { md: '100px', xs: '40px' },
+                    flexWrap: 'wrap',
+                  }}
+                >
                   <Box sx={{ paddingY: '10px' }}>
                     <Typography sx={{ color: '#999999' }}>
-                      {item.des}
+                      {data.des}
                     </Typography>
                     <Typography sx={{ color: '#999999' }}>
-                      {item.location}
+                      {data.location}
                     </Typography>
                     <Typography>
                       <span style={{ color: '#C84B11' }}>Open Now </span>11pm -
@@ -41,8 +51,7 @@ const Name = ({ id }) => {
               </Box>
             </Box>
           </>
-        );
-      })}
+
     </Container>
   );
 };

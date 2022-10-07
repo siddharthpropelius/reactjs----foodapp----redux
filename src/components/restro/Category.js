@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FoodActions } from '../../redux/slices/FoodSlice';
 import { useParams } from 'react-router-dom';
 import { restroData } from '../../data/data';
+import CategoryCard from './CategoryCard';
 
 const Category = () => {
   const RID = useParams();
@@ -46,16 +47,16 @@ const Category = () => {
     }
   };
 
-  const addToCart = ({ id, name, time, img, des, price }) => {
-    dispatch(FoodActions.addToCart({ id, name, time, img, des, price }));
-    cartList.find((item) => {
-      if (item.id === id) {
-        if (item.quantity === 5) {
-          alert("can't add more than 5 food items")
-        }
-      }
-    });
-  };
+  // const addToCart = ({ id, name, time, img, des, price }) => {
+  //   dispatch(FoodActions.addToCart({ id, name, time, img, des, price }));
+  //   cartList.find((item) => {
+  //     if (item.id === id) {
+  //       if (item.quantity === 5) {
+  //         // setError(true);
+  //       }
+  //     }
+  //   });
+  // };
   return (
     <Container sx={{ my: '50px' }}>
       <Typography variant="h4">Order Online</Typography>
@@ -100,55 +101,14 @@ const Category = () => {
           {foodItems?.map((item) => {
             return (
               <>
-                <Box sx={{ display: 'flex', p: '10px',flexDirection:{sm:'row',xs:'column'} }} key={item.id}>
-                  <Box sx={{display:'flex',justifyContent:'center',width:{sm:'211px'},height:'186px'}}>
-                    <img
-                      src={item.img}
-                      alt={item.name}
-                      style={{
-                        objectFit: 'cover',
-                        width:'100%',
-                        height:'186px',
-                        borderRadius: '20px',
-                      }}
-                    />
-                  </Box>
-                  <Box sx={{ pl: '20px', pt: '20px',justifyContent:'center' }}>
-                    <Typography variant="h6">{item.name}</Typography>
-                    <Typography variant="p" sx={{ color: '#848484' }}>
-                      {item.des}
-                    </Typography>
-                    <br />
-                    <Typography variant="p">₹{item.price}</Typography>
-                    <Box sx={{ pt: '25px', }}>
-                      <>
-                        <Button
-                          onClick={() =>
-                            addToCart({
-                              id: item.id,
-                              name: item.name,
-                              time: item.time,
-                              img: item.img,
-                              price: item.price,
-                              des: item.des,
-                            })
-                          }
-                          sx={{
-                            backgroundColor: '#FFA500',
-                            color: 'white',
-                            ml: '10px',
-                            '&:hover': {
-                              backgroundColor: '#F6B716',
-                              color: '#fff',
-                            },
-                          }}
-                        >
-                          Add to Cart
-                        </Button>
-                      </>
-                    </Box>
-                  </Box>
-                </Box>
+                <CategoryCard
+                  id={item.id}
+                  name={item.name}
+                  des={item.des}
+                  price={item.price}
+                  img={item.img}
+                  tIme={item.time}
+                />
               </>
             );
           })}

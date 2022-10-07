@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <>
     <nav
-      className="pt-3 flex justify-between  py-2 px-8  z-10 relative text-black ,"
+      className="pt-3 flex   z-10 relative text-black ,"
       style={{
         background: navbg ? 'rgba(0, 0, 0, 0.47)' : '#FFFFFF',
         color: navbg ? 'white' : 'black',
